@@ -1,0 +1,65 @@
+# depslib dependency file v1.0
+1737730799 source:d:\programming\c\lab project\main.c
+	"header.h"
+
+1735465215 d:\programming\c\lab project\reg.h
+
+1737731622 source:d:\programming\c\lab project\reg.c
+	"header.h"
+
+1737713697 d:\programming\c\lab project\option.h
+	<stdbool.h>
+
+1735463542 d:\programming\c\lab project\mystruct.h
+
+1737731509 source:d:\programming\c\lab project\option.c
+	"header.h"
+
+1737730594 d:\programming\c\lab project\header.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	"reg.h"
+	"option.h"
+	"mystruct.h"
+	"result.h"
+
+1737731523 source:d:\programming\c\lab project\result.c
+	"header.h"
+
+1737713688 d:\programming\c\lab project\result.h
+
+1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\main.c
+	"header.h"
+
+1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\header.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	"reg.h"
+	"option.h"
+	"mystruct.h"
+	"result.h"
+
+1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\reg.h
+
+1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\option.h
+	<stdbool.h>
+
+1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\mystruct.h
+
+1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\result.h
+
+1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\option.c
+	"header.h"
+
+1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\reg.c
+	"header.h"
+
+1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\result.c
+	"header.h"
+
