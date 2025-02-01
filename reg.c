@@ -90,8 +90,8 @@ int registration()
             printf("\033[1;31m\n\t\tPasswords do not match.\n\033[0m\n");
             fclose(fp);
             Beep(523, 500);
-            Sleep(2000);
-            login();
+            Sleep(1000);
+            registration();
             return 0;
         }
         else
@@ -138,7 +138,7 @@ int login()
         takepassword(password);
         fp = fopen("stdinfo.txt", "r");
 
-        while (fread(&s, sizeof(user),1,fp) != NULL)
+        while (fread(&s, sizeof(user),1,fp) != 0)
         {
             if (strcmp(id, s.roll) == 0)
             {
@@ -163,6 +163,7 @@ int login()
                     Beep(823,500);
                     Sleep(2000);
                     login();
+                    return 0;
                 }
             }
         }
@@ -182,7 +183,7 @@ int login()
         takepassword(password);
         fp = fopen("teacherinfo.txt", "r");
 
-        while (fread(&t,sizeof(user),1,fp) != NULL)
+        while (fread(&t,sizeof(user),1,fp) != 0)
         {
             if (strcmp(email, t.email) == 0)
             {
@@ -204,7 +205,6 @@ int login()
                 {
                     fclose(fp);
                     scrolltext("\033[1;31m\t\tWrong Password.\n\033[0m\n");
-                    //printf("Wrong Password.\n");
                     Sleep(2000);
                     return 0;
                 }

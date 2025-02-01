@@ -11,4 +11,4 @@
 #include "mystruct.h"
 #include "result.h"
 
-#endif // HEADER_H
+#endif

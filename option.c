@@ -134,8 +134,43 @@ int optiont(char *femail, char *password)
         optiont(femail,password);
     }
 }
+float cgpcal()
+{
+    int n;
+    printf("Enter the number of semesters: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid input! Please enter a positive integer.\n");
+        return -1;
+    }
 
-int cgpcal()
+    float *gp = (float *)malloc(n * sizeof(float));
+    if (gp == NULL) {
+        printf("Memory allocation failed!\n");
+        return -1;
+    }
+    system("cls");
+   printf("\t\t\tCGPA Calculator\n\n");
+    for (int i = 0; i < n; i++) {
+        printf("\t\tEnter GPA of semester %d: ", i + 1);
+        if (scanf("%f", &gp[i]) != 1 || gp[i] < 0 || gp[i] > 4.0) {
+            printf("\t\tInvalid GPA! Please enter a number between 0.0 and 4.0.\n");
+            free(gp);
+            return -1;
+        }
+    }
+
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += gp[i];
+    }
+
+    printf("\t\tThe CGPA is: %.2f\n", sum / n);
+    free(gp);
+    system("pause");
+    return 0;
+}
+
+/*int cgpcal()
 {
     int n;
     scrolltext("Enter the number of semesters : ");
@@ -155,7 +190,7 @@ int cgpcal()
     printf("The CGPA is : %.2f\n", sum / n);
     system("pause");
     return 0;
-}
+}*/
 
 typedef struct
 {
@@ -224,28 +259,27 @@ int elect_cr()
             }
         }
 
-        // Check if there is a tie
         if (check_tie(most_votes))
         {
             printf("\nThere is a tie. A re-election is required among the tied candidates.\n");
 
-            // Retain only the tied candidates and reset their votes
+
             reset_votes();
         }
         else
         {
-            // Print the winner(s) and exit the loop
+
             print_winner();
             break;
         }
     }
 
-    // Wait for user input to keep the console open
+
     system("pause");
     return 0;
 }
 
-// Update vote totals given a new vote
+
 bool vote(char name[])
 {
     for (int i = 0; i < candidates_count; i++)
@@ -259,7 +293,7 @@ bool vote(char name[])
     return false;
 }
 
-// Print the winner(s) of the election
+
 void print_winner(void)
 {
     int most_votes = 0;
@@ -281,7 +315,6 @@ void print_winner(void)
     }
 }
 
-// Check if there is a tie among candidates with the highest votes
 bool check_tie(int most_votes)
 {
     int tie_count = 0;
@@ -298,7 +331,6 @@ bool check_tie(int most_votes)
     return tie_count > 1;
 }
 
-// Reset the votes of all candidates for a re-election
 void reset_votes(void)
 {
     for (int i = 0; i < candidates_count; i++)
@@ -307,40 +339,54 @@ void reset_votes(void)
     }
 }
 
-int searchstd()
-{
-    printf("\n\t\tEnter the ID of the student : ");
+int searchstd() {
     char roll[10];
-    gets(roll);
+    printf("\n\t\tEnter the ID of the student: ");
+    fgets(roll, sizeof(roll), stdin);
+    roll[strcspn(roll, "\n")] = 0; // Remove newline character if present
     system("cls");
-    printf("\t\t\t---Information of ID %s---\n\n",roll);
+
+    printf("\t\t\t---Information of ID %s---\n\n", roll);
+
+    // Open student info file
     fp = fopen("stdinfo.txt", "r");
-    while (fread(&s,sizeof(user),1,fp) != NULL)
-    {
-        if (strcmp(s.roll, roll) == 0)
-        {
-            printf("\t\tName: %s\n\t\tEmail: %s\n\t\tPhone: %s\n\t\tRoll: %s\n", s.name, s.email, s.phone, s.roll);
+    if (fp == NULL) {
+        perror("Error opening student info file");
+        return 1;
+    }
+
+    int found = 0;
+    while (fread(&s, sizeof(user), 1, fp) != 0) {
+        if (strcmp(s.roll, roll) == 0) {
+            printf("\t\tName: %s\n\t\tEmail: %s\n\t\tPhone: %s\n\t\tRoll: %s\n",
+                   s.name, s.email, s.phone, s.roll);
+            found = 1;
             break;
         }
     }
     fclose(fp);
-    char id[8];
-    printf("\n\t\t\tResult in 1-1 of %s\n\n",s.roll);
-    fp = fopen("gpa.txt", "r");
 
-    if (fp == NULL)
-    {
-        perror("Error opening file");
+    if (!found) {
+        printf("\t\tError: Student with ID '%s' not found.\n", roll);
+        system("pause");
+        return 1; // Return error code indicating student not found
+    }
+
+    // Open GPA file
+    fp = fopen("gpa.txt", "r");
+    if (fp == NULL) {
+        perror("Error opening GPA file");
         return 1;
     }
 
+    char id[8];
     float gp[8], gpa;
+    printf("\n\t\t\tResult in 1-1 of %s\n\n", s.roll);
+    found = 0;
     while (fscanf(fp, "%s %f %f %f %f %f %f %f %f %f",
                   id, &gp[0], &gp[1], &gp[2], &gp[3],
-                  &gp[4], &gp[5], &gp[6], &gp[7], &gpa) != EOF)
-    {
-        if (strcmp(s.roll, id) == 0)
-        {
+                  &gp[4], &gp[5], &gp[6], &gp[7], &gpa) != EOF) {
+        if (strcmp(s.roll, id) == 0) {
             printf("\t\tCSE  1101 : %.2f\n", gp[0]);
             printf("\t\tCSE  1102 : %.2f\n", gp[1]);
             printf("\t\tCSE  1107 : %.2f\n", gp[2]);
@@ -348,12 +394,18 @@ int searchstd()
             printf("\t\tPHY  1108 : %.2f\n", gp[4]);
             printf("\t\tMATH 1107 : %.2f\n", gp[5]);
             printf("\t\tHUM  1107 : %.2f\n", gp[6]);
-            printf("\t\tHUM  1108 : %.2f\n\n", gp[7]);
+            printf("\t\tHUM  1108 : %.2f\n", gp[7]);
             printf("\t\tGPA       : %.2f\n", gpa);
+            found = 1;
             break;
         }
     }
     fclose(fp);
+
+    if (!found) {
+        printf("\t\tError: Results for ID '%s' not found in GPA records.\n", s.roll);
+    }
+
     system("pause");
     return 0;
 }
@@ -445,7 +497,7 @@ int editstdinfo(char *fid, char *password)
         }
         else
         {
-            system("color 0B");
+            system("color 70");
             system("cls");
             scrolltext("\t\t\t---Information Editing---\n");
             printf("\n\t\tEnter your name: \t");

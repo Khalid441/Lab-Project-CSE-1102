@@ -31,10 +31,10 @@
 
 1737713688 d:\programming\c\lab project\result.h
 
-1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\main.c
+1737922646 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\main.c
 	"header.h"
 
-1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\header.h
+1737922820 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\header.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -47,17 +47,17 @@
 
 1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\reg.h
 
-1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\option.h
+1737822537 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\option.h
 	<stdbool.h>
 
 1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\mystruct.h
 
 1737732397 c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\result.h
 
-1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\option.c
+1737826232 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\option.c
 	"header.h"
 
-1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\reg.c
+1737822863 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\reg.c
 	"header.h"
 
 1737732397 source:c:\users\rowtech\onedrive\desktop\cse 2k23 class slides\lab-project-main\lab-project-main\result.c
